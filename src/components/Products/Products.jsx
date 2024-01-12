@@ -9,13 +9,16 @@ function Products() {
 
   useEffect(() => {
 
-    fetchProducts('iphone').then((response) => {});
-
+    fetchProducts('iphone').then((response) => {
+      setProducts(response);
+    });
   }, []);
+
+  console.log(products);
 
   return (
     <section className="products container">
-      products
+      products eroticos
     </section>
   );
 }
