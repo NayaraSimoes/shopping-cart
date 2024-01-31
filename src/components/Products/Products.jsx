@@ -13,14 +13,16 @@ function Products() {
   useEffect(() => {
     fetchProducts('iphone').then((response) => {
       setProducts(response);
-      setLoading(true);
+      setLoading(false);
     });
   }, []);
 
   return (
-    (loading ? <Loading /> : <section className="products container">
-      {products.map((product) => <ProductCard key={product.id} data={product} />)}
-    </section>)
+    (loading && <Loading /> ) || (
+      <section className="products container">
+        {products.map((product) => <ProductCard key={product.id} data={product} />)}
+      </section>
+    )
   );
 }
 
